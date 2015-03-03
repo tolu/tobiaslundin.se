@@ -1,0 +1,28 @@
+﻿@{ 
+    var current = ViewContext.RouteData.Values["Action"] as string;
+}
+@helper printNavLink(string title, string action, string controller, string current)
+{ 
+        var cssClass = current == action ? "active" : null;
+        <li class="@cssClass">@Html.ActionLink(title, action, controller)</li>
+}
+<div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            @Html.ActionLink("TOLU", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                @printNavLink("Home", "Index", "Home", current)
+                @printNavLink("About", "About", "Home", current)
+                @printNavLink("Slides", "Slides", "Home", current)
+                @printNavLink("Contact", "Contact", "Home", current)
+            </ul>
+        </div>
+    </div>
+</div>
