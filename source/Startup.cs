@@ -1,7 +1,6 @@
 ﻿using System;
 using Microsoft.AspNet.Builder;
 using Microsoft.AspNet.Diagnostics;
-using Microsoft.AspNet.Diagnostics.Entity;
 using Microsoft.AspNet.Hosting;
 using Microsoft.AspNet.Routing;
 using Microsoft.Framework.ConfigurationModel;
@@ -47,7 +46,6 @@ namespace source
             {
                 app.UseBrowserLink();
                 app.UseErrorPage(ErrorPageOptions.ShowAll);
-                app.UseDatabaseErrorPage(DatabaseErrorPageOptions.ShowAll);
             }
             else
             {
