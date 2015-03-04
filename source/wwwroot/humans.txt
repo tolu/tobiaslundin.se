@@ -1,0 +1,15 @@
+﻿# humanstxt.org/
+# The humans responsible & technology colophon
+
+# TEAM
+
+    Tobias Lundin -- Mastermind -- @LundinTobias
+
+# THANKS
+
+    Mom n Dad
+
+# TECHNOLOGY COLOPHON
+
+    CSS3, HTML5
+    NodeJS, Azure Websites, jQuery, Bootstrap
