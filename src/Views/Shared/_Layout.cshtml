@@ -1,0 +1,68 @@
+﻿@inject IOptions<AppSettings> AppSettings
+<!doctype html>
+<!--
+  _______    _     _             _                      _ _
+ |__   __|  | |   (_)           | |                    | (_)
+    | | ___ | |__  _  __ _ ___  | |     _   _ _ __   __| |_ _ __
+    | |/ _ \| '_ \| |/ _` / __| | |    | | | | '_ \ / _` | | '_ \
+    | | (_) | |_) | | (_| \__ \ | |____| |_| | | | | (_| | | | | |
+    |_|\___/|_.__/|_|\__,_|___/ |______|\__,_|_| |_|\__,_|_|_| |_|
+                        just a regular awesome guy!
+
+art from:  http://patorjk.com/software/taag/
+-->
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewBag.Title - @AppSettings.Options.SiteTitle</title>
+    <meta name="description" content="Personal website of Tobias Lundin">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="~/css/bootstrap.paper.css" />
+
+    <environment names="Development">
+        <link rel="stylesheet" href="~/lib/bootstrap/css/bootstrap.css" />
+        <link rel="stylesheet" href="~/css/site.css" />
+    </environment>
+    <environment names="Staging,Production">
+        <link rel="stylesheet" href="//ajax.aspnetcdn.com/ajax/bootstrap/3.0.0/css/bootstrap.min.css"
+              asp-fallback-href="~/lib/bootstrap/css/bootstrap.min.css"
+              asp-fallback-test-class="hidden" asp-fallback-test-property="visibility" asp-fallback-test-value="hidden" />
+        <link rel="stylesheet" href="~/css/site.css" />
+    </environment>
+    @Html.Partial("ApplicationInsights")
+</head>
+<body>
+    @Html.Partial("Navbar");
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        @Html.Partial("Footer")
+    </div>
+    
+    <environment names="Development">
+        <script src="~/lib/jquery/jquery.js"></script>
+        <script src="~/lib/bootstrap/js/bootstrap.js"></script>
+        <script src="~/lib/hammer.js/hammer.js"></script>
+    </environment>
+    <environment names="Staging,Production">
+        <script src="//ajax.aspnetcdn.com/ajax/jquery/jquery-1.10.2.min.js"
+                asp-fallback-src="~/lib/jquery/jquery.min.js"
+                asp-fallback-test="window.jQuery">
+        </script>
+        <script src="//ajax.aspnetcdn.com/ajax/bootstrap/3.0.0/bootstrap.min.js"
+                asp-fallback-src="~/lib/bootstrap/js/bootstrap.min.js"
+                asp-fallback-test="window.jQuery">
+        </script>
+        <script src="//ajax.aspnetcdn.com/ajax/hammer.js/2.0.4/hammer.min.js"
+                asp-fallback-src="~/lib/hammer.js/hammer.js"
+                asp-fallback-test="window.Hammer">
+        </script>
+    </environment>
+
+    @RenderSection("scripts", required: false)
+</body>
+</html>
