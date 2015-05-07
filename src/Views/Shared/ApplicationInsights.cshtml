@@ -13,5 +13,14 @@ automatically in just a few seconds.
     });
 
     window.appInsights=appInsights;
-    appInsights.trackPageView();
+    appInsights.trackPageView('@ViewBag.Title');
+
+    window.onerror = function (msg, file, line, column) {
+        var errData = {
+            Message: msg,
+            FileName: file,
+            LineNumber: line + ':' + column
+        }
+        appInsights.trackEvent('JavaScript-Error', errData);
+    }
 </script>

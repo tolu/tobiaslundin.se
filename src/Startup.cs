@@ -1,6 +1,5 @@
 ﻿using Microsoft.AspNet.Builder;
 using Microsoft.AspNet.Diagnostics;
-using Microsoft.AspNet.Diagnostics.Entity;
 using Microsoft.AspNet.Hosting;
 using Microsoft.Framework.ConfigurationModel;
 using Microsoft.Framework.DependencyInjection;
@@ -56,7 +55,6 @@ namespace tobiaslundin.se
             {
                 app.UseBrowserLink();
                 app.UseErrorPage(ErrorPageOptions.ShowAll);
-                app.UseDatabaseErrorPage(DatabaseErrorPageOptions.ShowAll);
             }
             else
             {
@@ -67,13 +65,6 @@ namespace tobiaslundin.se
 
             // Add static files to the request pipeline.
             app.UseStaticFiles();
-
-            // Add authentication middleware to the request pipeline. You can configure options such as Id and Secret in the ConfigureServices method.
-            // For more information see http://go.microsoft.com/fwlink/?LinkID=532715
-            // app.UseFacebookAuthentication();
-            // app.UseGoogleAuthentication();
-            // app.UseMicrosoftAccountAuthentication();
-            // app.UseTwitterAuthentication();
 
             // Add MVC to the request pipeline.
             app.UseMvc(routes =>

@@ -62,6 +62,14 @@ art from:  http://patorjk.com/software/taag/
                 asp-fallback-test="window.Hammer">
         </script>
     </environment>
+    <script>
+        $(function () {
+            $('[data-track]').on('click', function (e) {
+                var evt = e.target.getAttribute('data-track');
+                appInsights.trackEvent(evt);
+            });
+        });
+    </script>
 
     @RenderSection("scripts", required: false)
 </body>
