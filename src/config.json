@@ -1,10 +1,5 @@
 {
-  "AppSettings": {
-    "SiteTitle": "tobiaslundin.se"
-  },
-  "Data": {
-    "DefaultConnection": {
-      "ConnectionString": "Server=(localdb)\\mssqllocaldb;Database=aspnet5-tobiaslundin.se-716678d2-0c44-4cd5-849b-d0fd5aa3953a;Trusted_Connection=True;MultipleActiveResultSets=true"
-    }
-  }
+    "siteTitle": "tolu internet lair",
+    "setting1": "kuckeli-kuu",
+    "setting2": "only in base config"
 }

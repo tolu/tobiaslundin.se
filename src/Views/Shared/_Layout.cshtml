@@ -1,5 +1,4 @@
-﻿@inject IOptions<AppSettings> AppSettings
-<!doctype html>
+﻿<!doctype html>
 <!--
   _______    _     _             _                      _ _
  |__   __|  | |   (_)           | |                    | (_)
@@ -16,7 +15,7 @@ art from:  http://patorjk.com/software/taag/
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewBag.Title - @AppSettings.Options.SiteTitle</title>
+    <title>@ViewBag.Title - TOLUweb</title>
     <meta name="description" content="Personal website of Tobias Lundin">
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
 
@@ -33,7 +32,6 @@ art from:  http://patorjk.com/software/taag/
               asp-fallback-test-class="hidden" asp-fallback-test-property="visibility" asp-fallback-test-value="hidden" />
         <link rel="stylesheet" href="~/css/site.css" />
     </environment>
-    @Html.Partial("ApplicationInsights")
 </head>
 <body>
     @Html.Partial("Navbar");
@@ -43,12 +41,7 @@ art from:  http://patorjk.com/software/taag/
         @Html.Partial("Footer")
     </div>
     
-    <environment names="Development">
-        <script src="~/lib/jquery/jquery.js"></script>
-        <script src="~/lib/bootstrap/js/bootstrap.js"></script>
-        <script src="~/lib/hammer.js/hammer.js"></script>
-    </environment>
-    <environment names="Staging,Production">
+    <environment names="Development,Staging,Production">
         <script src="//ajax.aspnetcdn.com/ajax/jquery/jquery-1.10.2.min.js"
                 asp-fallback-src="~/lib/jquery/jquery.min.js"
                 asp-fallback-test="window.jQuery">
@@ -62,15 +55,7 @@ art from:  http://patorjk.com/software/taag/
                 asp-fallback-test="window.Hammer">
         </script>
     </environment>
-    <script>
-        $(function () {
-            $('[data-track]').on('click', function (e) {
-                var evt = e.target.getAttribute('data-track');
-                appInsights.trackEvent(evt);
-            });
-        });
-    </script>
-
+    
     @RenderSection("scripts", required: false)
 </body>
 </html>
