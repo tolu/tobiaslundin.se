@@ -1,23 +1,21 @@
 {
-  "name": "tobiaslundin.se",
+  "name": "svelte-app",
   "version": "1.0.0",
-  "description": "Personal website",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "postinstall": "dnu restore",
-    "start": "dnx -p ./src/ web ASPNET_ENV=Development"
+    "build": "rollup -c",
+    "dev": "rollup -c -w",
+    "start": "sirv public"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/tolu/tobiaslundin.se.git"
-  },
-  "author": "Tobias Lundin",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/tolu/tobiaslundin.se/issues"
-  },
-  "homepage": "https://github.com/tolu/tobiaslundin.se#readme",
   "devDependencies": {
-    "nodemon": "^1.9.1"
+    "@rollup/plugin-commonjs": "^11.0.0",
+    "@rollup/plugin-node-resolve": "^7.0.0",
+    "rollup": "^1.20.0",
+    "rollup-plugin-livereload": "^1.0.0",
+    "rollup-plugin-svelte": "^5.0.3",
+    "rollup-plugin-terser": "^5.1.2",
+    "svelte": "^3.0.0"
+  },
+  "dependencies": {
+    "sirv-cli": "^0.4.4"
   }
 }
